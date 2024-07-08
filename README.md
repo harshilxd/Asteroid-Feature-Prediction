@@ -1,1 +1,1 @@
-#CSE 151A Summer Session 1 Project
+CSE 151A Summer Session 1 Project
