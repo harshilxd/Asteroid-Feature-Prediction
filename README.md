@@ -146,7 +146,9 @@ This project analyzes a dataset with 839,714 observations and 31 features. The a
   </tr>
 </table>
 
-2. Correlations between features
+2. We used a heatmap to look at the correlations between different features
+   ![image](https://github.com/user-attachments/assets/d684808c-b51b-430a-a1e2-da378104e964)
+
 
 3. We used data.describe() to look at the distribution for the features that we interested: 
 ![image](https://github.com/user-attachments/assets/c1506d16-6e57-4fab-a8a0-98b7d3b5ddfa)
