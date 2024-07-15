@@ -146,7 +146,9 @@ Our data consists of:
   </tr>
 </table>
 
-### Data Description
+
 We used data.describe() to get a distribution: 
+
+### Data Preprocess
 
 
