@@ -190,9 +190,8 @@ Number of rows dropped: 815310
 4. **Data Encoding:**
    - We change the values in the `pha` containing string values of 'Y' or 'N' to 1s and 0s to make graphing and working on them easier.
   
-**Analyzing effects of preproccesing on data distribution:**
-
-Using the scipy.stats.ks_2samp https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html we found that dropping the NAN rows did not severely effect the distribution. The KS test checks for the likelyhood that two samples were drawn from the same distribution, and for the variables we are interested in found p-values of 2.488278122363494e-60 for q, 0.0 for H and 1.4086431738613219e-53 for moid. All indicate that the effect was negligible.**bold text**
+5. **Analyzing effects of preproccesing on data distribution:**
+   - Using the scipy.stats.ks_2samp https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html we found that dropping the NAN rows did not severely effect the distribution. The KS test checks for the likelyhood that two samples were drawn from the same distribution, and for the variables we are interested in found p-values of **2.488278122363494e-60** for q, **0.0** for H and **1.4086431738613219e-53** for moid. All indicate that the effect was negligible.
 
 
 
@@ -220,13 +219,13 @@ To better understand the relationships between various features and the diameter
 
 8. **Distribution Difference after dropping NAN values in preproccesing**
     - Histogram of q:
-   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/q%20before%20and%20after%20drop.png" alt="histogram of q" width="800"/>
+   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/q%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
    
     - Histogram of H:
-   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/h%20before%20and%20after%20drop.png" alt="histogram of q" width="800"/>
+   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/h%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
    
     - Histogram of moid:
-   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/moid%20before%20and%20after%20drop.png" alt="histogram of q" width="800"/>
+   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/moid%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
 
 
 These visualizations provide several insights:
