@@ -178,13 +178,38 @@ To prepare the dataset for analysis, we undertook several preprocessing steps:
 
 2. **Handle Missing Values:**
    - We dropped the columns `rot_per`, `GM`, `BV`, and `UB` due to a high number of NaN values.
-   - Additionally, we removed any rows that contained NaN values in order to ensure a clean dataset for analysis.
+   - We removed any rows that contained NaN values for the diameter feature in order to ensure a clean dataset for analysis.
 
 3. **Check Correlations:**
    - By plotting pairplots and the heatmap, we discovered a reasonably strong correlation between `diameter` and the following features: `q`, `moid`, `H`, `data_arc`, and `n`.
    - These correlations will be explored further in subsequent steps to understand their impact and relationships.
 
-4. **Data Splitting:**
-   - We split the dataset into training and testing sets using an 80/20 ratio to ensure that we have a robust model evaluation process.
+4. **Data Encoding:**
+   - We change the values in the `pha` containing string values of 'Y' or 'N' to 1s and 0s to make graphing and working on them easier.
+
+### Graph Data Analysis
+
+To better understand the relationships between various features and the diameter, we graphed several feature correlations. This graphical analysis aids in identifying potential relationships and patterns that might not be immediately evident through raw data or simple statistical summaries.
+
+1. **Diameter vs. q:**
+   - We plotted the relationship between diameter and q (perihelion distance). This scatter plot helps us observe any direct or inverse relationships between the size of the object and its perihelion distance.
+
+2. **Diameter vs. moid:**
+   - The scatter plot between diameter and moid (minimum orbit intersection distance) was analyzed to see if there is any correlation between the object's size and its closest approach to Earth.
+
+3. **Diameter vs. H:**
+   - We also examined the correlation between diameter and H (absolute magnitude). This plot is particularly interesting as it helps in understanding how the brightness of an object might relate to its size.
+
+5. **Diameter vs. n:**
+   - Analyzing the scatter plot of diameter versus n (number of observations) can reveal whether more observations correlate with more accurate or different size estimations.
+
+These visualizations provide several insights:
+
+- **Identifying Outliers:**
+  - Scatter plots help in easily identifying any outliers that may exist in the data, which could potentially skew the analysis or indicate errors or special cases.
+
+- **Understanding Distribution:**
+  - The spread and clustering of points in these graphs can provide an understanding of how uniformly or variably the features are distributed.
+
 
 
