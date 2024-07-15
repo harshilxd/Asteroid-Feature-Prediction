@@ -150,5 +150,8 @@ Our data consists of:
 We used data.describe() to get a distribution: 
 
 ### Data Preprocess
-
+1. Remove String Columns: we dropped the columns name, spec_B, spec_T, and class as they contain string values that are not suitable for numerical analysis
+2. Handle Missing Values: we dropped the columns rot_per, GM, BV, and UB due to a high number of NaN values. We also drop any rows that contain NaN values.
+3. Checked Correlation : On plotting the pairplots and the heatmap, we found a reasonably strong correlation between the diameter and the following features: q, moid, H, data_arc, n for which we could explore their correlations in further steps.
+4. Data Splitting : we split the data into training and testing sets with an 80/20 ratio
 
