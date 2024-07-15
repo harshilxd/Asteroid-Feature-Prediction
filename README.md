@@ -179,6 +179,9 @@ To prepare the dataset for analysis, we undertook several preprocessing steps:
 2. **Handle Missing Values:**
    - We dropped the columns `rot_per`, `GM`, `BV`, and `UB` due to a high number of NaN values.
    - We removed any rows that contained NaN values for the diameter feature in order to ensure a clean dataset for analysis.
+Original dataset size: 839714
+Dataset size after dropping rows: 24404
+Number of rows dropped: 815310
 
 3. **Check Correlations:**
    - By plotting pairplots and the heatmap, we discovered a reasonably strong correlation between `diameter` and the following features: `q`, `moid`, `H`, `data_arc`, and `n`.
@@ -186,10 +189,18 @@ To prepare the dataset for analysis, we undertook several preprocessing steps:
 
 4. **Data Encoding:**
    - We change the values in the `pha` containing string values of 'Y' or 'N' to 1s and 0s to make graphing and working on them easier.
+  
+**Analyzing effects of preproccesing on data distribution:**
+
+Using the scipy.stats.ks_2samp https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html we found that dropping the NAN rows did not severely effect the distribution. The KS test checks for the likelyhood that two samples were drawn from the same distribution, and for the variables we are interested in found p-values of 2.488278122363494e-60 for q, 0.0 for H and 1.4086431738613219e-53 for moid. All indicate that the effect was negligible.**bold text**
+
+
 
 ### Graph Data Analysis
 
 To better understand the relationships between various features and the diameter, we graphed several feature correlations. This graphical analysis aids in identifying potential relationships and patterns that might not be immediately evident through raw data or simple statistical summaries.
+
+![diameter vs images](diagrams/heatmaps/diameter vs graphs.png)
 
 1. **Diameter vs. q:**
    - We plotted the relationship between diameter and q (perihelion distance). This scatter plot helps us observe any direct or inverse relationships between the size of the object and its perihelion distance.
