@@ -178,10 +178,10 @@ To prepare the dataset for analysis, we undertook several preprocessing steps:
 
 2. **Handle Missing Values:**
    - We dropped the columns `rot_per`, `GM`, `BV`, and `UB` due to a high number of NaN values.
-   - We removed any rows that contained NaN values for the diameter feature in order to ensure a clean dataset for analysis.
-Original dataset size: 839714
-Dataset size after dropping rows: 24404
-Number of rows dropped: 815310
+   - We removed any rows that contained NaN values for the diameter feature in order to ensure a clean dataset for analysis.\
+     Original dataset size: 839714\
+     Dataset size after dropping rows: 24404\
+     Number of rows dropped: 815310
 
 3. **Check Correlations:**
    - By plotting pairplots and the heatmap, we discovered a reasonably strong correlation between `diameter` and the following features: `q`, `moid`, `H`, `data_arc`, and `n`.
