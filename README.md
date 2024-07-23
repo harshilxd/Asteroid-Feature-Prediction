@@ -236,5 +236,26 @@ These visualizations provide several insights:
 - **Understanding Distribution:**
   - The spread and clustering of points in these graphs can provide an understanding of how uniformly or variably the features are distributed.
 
+## Milestone 3:
 
+Before training our first model, we carried out few final steps of major preprocessing. We included only the `q`, `H`, `moid` and `diameter` columns to train our models since only these 3 variables had a decently strong correlation with the diameter of asteroids.
+
+On studying the heatmap, we realized that `q` and `moid` were essentially the same thing and hence, we also dropped the `moid` column. 
+
+Before training our model, we removed observations that were above or below 2 standard deviations of the mean diameter. We did this to ensure that the outliers do not affect our model negatively. Here is a description of the data after removing the observations :
+
+<img src = "https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/b3ad3383ddf4c7b5180297880690c7384d9d7608/diagrams/heatmaps/filtered%20data%20description.png" alt = "filtered data description">
+
+### Model 1 :
+#### Linear Regression/Polynomial Regression Model
+
+The first model we trained was the Linear/Polynomial Regression model to predict the `diameter` using `H`
+
+For the linear regression model, the **Training Error** was equal to 0.00713 and the **Testing Error** was equal to 0.00718 and below is a plot of the fit.
+
+<img src = "https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/d1593699a58d2d0032c4faaf1a68904509fe8722/diagrams/heatmaps/linear%20regression.png" alt = "linear regression fit" >
+
+For the polynomial regression model with `degree = 9`, the **Training Error** was 0.00466 and the **Testing Error** was equal to 0.00468 and below is the plot of the fit.
+
+<img src = "https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/025d086d141ec3ccbcc462f6e335b85a7b624f16/diagrams/heatmaps/polynomial%20regression.png" alt = "polynomial regression fit">
 
