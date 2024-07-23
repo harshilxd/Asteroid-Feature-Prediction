@@ -194,68 +194,62 @@ To prepare the dataset for analysis, we undertook several preprocessing steps:
    - Using the scipy.stats.ks_2samp https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html we found that dropping the NAN rows did not severely effect the distribution. The KS test checks for the likelyhood that two samples were drawn from the same distribution, and for the variables we are interested in found p-values of **2.488278122363494e-60** for q, **0.0** for H and **1.4086431738613219e-53** for moid. All indicate that the effect was negligible.
 
 
-
-### Graph Data Analysis
-
-To better understand the relationships between various features and the diameter, we graphed several feature correlations. This graphical analysis aids in identifying potential relationships and patterns that might not be immediately evident through raw data or simple statistical summaries.
-
-![diagrams/heatmaps/diameter vs graphs.png](https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/0a965110aba28f2dfd9f969f2118bf6372483734/diagrams/heatmaps/diameter%20vs%20graphs.png)
-
-1. **Diameter vs. q:**
-   - We plotted the relationship between diameter and q (perihelion distance). This scatter plot helps us observe any direct or inverse relationships between the size of the object and its perihelion distance.
-
-2. **Diameter vs. moid:**
-   - The scatter plot between diameter and moid (minimum orbit intersection distance) was analyzed to see if there is any correlation between the object's size and its closest approach to Earth.
-
-3. **Diameter vs. H:**
-   - We also examined the correlation between diameter and H (absolute magnitude). This plot is particularly interesting as it helps in understanding how the brightness of an object might relate to its size.
-
-5. **Diameter vs. n:**
-   - Analyzing the scatter plot of diameter versus n (number of observations) can reveal whether more observations correlate with more accurate or different size estimations.
-  
-6. **Correlation Difference after dropping NAN values in preproccesing**
-   
-   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/c50bbc243a61133d703deddb63453c36aea5a690/diagrams/heatmaps/Difference%20in%20correlation%20before%20and%20after%20NAN%20drop.png" alt="histogram of q" width="400"/>
-
-8. **Distribution Difference after dropping NAN values in preproccesing**
-    - Histogram of q:
-   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/q%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
-   
-    - Histogram of H:
-   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/h%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
-   
-    - Histogram of moid:
-   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/moid%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
-
-
-These visualizations provide several insights:
-
-- **Identifying Outliers:**
-  - Scatter plots help in easily identifying any outliers that may exist in the data, which could potentially skew the analysis or indicate errors or special cases.
-
-- **Understanding Distribution:**
-  - The spread and clustering of points in these graphs can provide an understanding of how uniformly or variably the features are distributed.
-
 ## Milestone 3:
 
-Before training our first model, we carried out few final steps of major preprocessing. We included only the `q`, `H`, `moid` and `diameter` columns to train our models since only these 3 variables had a decently strong correlation with the diameter of asteroids.
+Before training our first model, we carried out few final steps of major preprocessing. We began by removing observations that were in the high top 5% of `a` and `diameter`. We did this to ensure that the big outliers do not affect our model negatively. We then proceeded to normalize our data using `MinMaxScaler`. This led to a data distribution between 0 and 1, which made it easier for our models to run.
 
-On studying the heatmap, we realized that `q` and `moid` were essentially the same thing and hence, we also dropped the `moid` column. 
+We then built a baseline model. This was a simple linear regression model using `H` as the feature to predict the `diameter`.
 
-Before training our model, we removed observations that were above or below 2 standard deviations of the mean diameter. We did this to ensure that the outliers do not affect our model negatively. Here is a description of the data after removing the observations :
+Here is a description of the data after removing the observations :
 
 <img src = "https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/b3ad3383ddf4c7b5180297880690c7384d9d7608/diagrams/heatmaps/filtered%20data%20description.png" alt = "filtered data description">
 
-### Model 1 :
-#### Linear Regression/Polynomial Regression Model
-
-The first model we trained was the Linear/Polynomial Regression model to predict the `diameter` using `H`
-
-For the linear regression model, the **Training Error** was equal to 0.00713 and the **Testing Error** was equal to 0.00718 and below is a plot of the fit.
+For the linear regression model, the **Training Error** was equal to `0.00713` and the **Testing Error** was equal to `0.00718` and below is a plot of the fit.
 
 <img src = "https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/d1593699a58d2d0032c4faaf1a68904509fe8722/diagrams/heatmaps/linear%20regression.png" alt = "linear regression fit" >
 
-For the polynomial regression model with `degree = 9`, the **Training Error** was 0.00466 and the **Testing Error** was equal to 0.00468 and below is the plot of the fit.
+We intended to use this baseline MSE to compare our future models' accuracy to. However, we felt that the relationship between `H` and `diameter` was polynomial, so to further improve upon the linear model, we ran a polynomial model of degree 6. The model reported the following: `Degree 6 - Polynomial-Training MSE: 0.0008861995114971393, Polynomial-Testing MSE: 0.000843212857156944`.
 
-<img src = "https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/025d086d141ec3ccbcc462f6e335b85a7b624f16/diagrams/heatmaps/polynomial%20regression.png" alt = "polynomial regression fit">
+The graph for polynomial regression was as follows:
+
+<img width="510" alt="Screenshot 2024-07-22 at 9 50 37 PM" src="https://github.com/user-attachments/assets/717c1e35-1588-4fdd-a649-9c37d9df9dde">
+
+### Model 1 :
+#### Deep Neural Net
+
+For our first complex model, we though of improving upon the accuracy of the regression models. Initially, we used a deep neural net with 3 hidden layers. We used `adam` as the optimizer and **Mean Squared Error** to determine the loss of the function. The description of the layers of the neural net was as follows:
+
+<img width="742" alt="Screenshot 2024-07-22 at 9 54 26 PM" src="https://github.com/user-attachments/assets/4ceb2a29-aad8-42ea-8fc3-65664e51669c">
+
+We trained this model using `'q', 'H', 'a', 'i', 'ad', 'n', 'per'` as features. This led to an Training MSE of  `0.00073075` and a Testing MSE of `0.00069468`.
+
+We then further improved upon this model using hyperparameter training. This led to a slight improvement in the MSE, which jumped to `0.00068175`. The model after hyperparametrizing was as follows:
+
+<img width="758" alt="Screenshot 2024-07-22 at 10 01 08 PM" src="https://github.com/user-attachments/assets/12a9db15-4b6b-4fb7-8db9-061e73180990">
+
+#### Potential Scopes of Improvement
+While the current performance is impressive, there are always areas where improvements can be made:
+
+1. **Model Complexity**: We need to evaluate if the model complexity is optimal. Adding more layers or neurons might not always lead to better performance and could cause overfitting.
+
+2. **Regularization Techniques**: We might need to implement regularization techniques such as Dropout, L2 regularization, or Batch Normalization to prevent overfitting and improve model robustness.
+
+3. **Cross-Validation**: We need to implement cross-validation to ensure the model's robustness and prevent overfitting to a particular train-test split. This will give a better estimate of the model's performance on unseen data.
+
+4. **Model Ensembles**: We need to combine the neural network with other models (e.g., ensemble with decision trees or gradient boosting machines) to potentially capture different aspects of the data and improve overall performance.
+
+#### Future Direction
+As for the next model, we plan to use Decision Trees or Transformer Networks. We feel that decision trees will beeffective because some of our data might not be linear. And Transformer Networks are also used in regression models. Additional improvements include:
+
+1. **Fine-Tuning the Architecture**: Experiment with the architecture by adding/removing layers or neurons. Implement regularization techniques such as Dropout or Batch Normalization to control overfitting.
+
+2. **Hyperparameter Optimization**: Conduct a more extensive hyperparameter optimization using techniques like Grid Search or Bayesian Optimization to find the best set of hyperparameters.
+ 
+3. **Advanced Features**: Conduct a thorough feature importance analysis to identify the most influential features and consider engineering new features.
+  
+4. **Cross-Validation**: Use k-fold cross-validation to ensure that the model is not overfitting and to provide a more accurate measure of its performance.
+
+
+
+
 
