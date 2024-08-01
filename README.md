@@ -298,8 +298,14 @@ We have found a fairly strong correlation between perihelion distance (q), absol
 1. All non-numeric columns and other unnecessary columns have been removed.
 2. After normalization, all features are scaled to lie within the range [0, 1] which ensures that no single feature dominates due to its scale
 
-#### Model 2(Deep Neural Network):
-The result of this model gives us a fairly good prediction for diameter of  `moid`  using  `e`,`i`,`H`,`diameter`,`albedo` with a test MSE of  0.00462 and training MSE  of 0.00446
+#### Model 1 (Deep Neural Network1)
+This model predicted the diameter of asteroid using features `e`,`i`,`H`,`diameter` and `albedo`.
+The scatter plot below with x-axis = y_test and y-axis = yhat1 illustrates the relationship between the true values and the predicted values for the prediction of the diameter in this  deep neural network
+
+
+#### Model 2(Deep Neural Network2):
+This deep neural network model predicts diameter of asteroid using the features `moid`  using  `e`,`i`,`H`,`diameter`,`albedo` with a test MSE of  0.00462 and training MSE  of 0.00446
+
 
 
 
