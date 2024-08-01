@@ -367,9 +367,12 @@ The second model that we trained diverged quite a lot from the first since we we
 ### Statement of Collaboration:
 **Moshe Bookstein:** Project Management and Design: Creating data exploration graphs, helped with preprocessing, created figures and illustrations, documentation and organization.
 
-**Aniket Iyer:** Helped creating the regression model to predict diameter and moid and also helped creating the neural net to predict `moid` using `diameter`. Edited the documentation as well 
+**Aniket Iyer:** Helped creating the linear and polynomial regression model to predict diameter and moid and also helped creating the neural network to predict moid using diameter. Edited the methods and discussion section of the final report as well.
 
 **Yuri Liu**: Coder and Writer: worked on normalization of data, linear regression model, polynomial regression model, hyper tuning for neural networks, report, and readmes.
+
+ 
+
 
 ## Milestone 1:
 ### Link To Colab:
