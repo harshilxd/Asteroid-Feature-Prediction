@@ -366,6 +366,7 @@ The second model that we trained diverged quite a lot from the first since we we
 
 **Aniket Iyer:** Helped creating the regression model to predict diameter and moid and also helped creating the neural net to predict `moid` using `diameter`. Edited the documentation as well 
 
+**Yuri Liu**: Coder and Writer: worked on normalization of data, linear regression model, polynomial regression model, hyper tuning for neural networks, report, and readmes.
 
 ## Milestone 1:
 ### Link To Colab:
