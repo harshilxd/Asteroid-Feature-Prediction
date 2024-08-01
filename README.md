@@ -328,6 +328,8 @@ This deep neural network model predicts `moid` using features `e`,`i`,`H`,`diame
 
 After the method Random Search for hyperparameter tuning in this model, the test MSE decreased by 0.111
 
+This is the result of the hyperparameter tuning:
+
 <img width="805" alt="Screenshot 2024-07-31 at 10 59 23 PM" src="https://github.com/user-attachments/assets/43080b0b-e7b0-4bc4-a5cf-d05264dc012c">
 
 
