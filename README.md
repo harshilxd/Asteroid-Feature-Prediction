@@ -255,8 +255,10 @@ This code performs hyperparameter tuning and trains a neural network model to pr
  
 
 ### Results:
-Data Exploration Results
+
+#### Data Exploration Results
 We have found a fairly strong correlation between perihelion distance (q), absolute magnitude parameter (H), and Earth minimum orbit intersection (moid) distance with the diameter of asteroids, as indicated by the heatmap.
+#### Preprocessing Results
 
 
 ### Discussion:
