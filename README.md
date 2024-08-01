@@ -324,7 +324,7 @@ The scatter plot below with x-axis = y_test and y-axis = yhat1 illustrates the r
 #### Model 2(Deep Neural Network2):
 This deep neural network model predicts diameter of asteroid using features `moid`,`e`,`i`,`H`,`diameter`,`albedo` with a test MSE of 0.00462 and training MSE  of 0.00446
 
-![image](https://github.com/user-attachments/assets/81e5d892-beef-45f6-ac97-caebab376094)
+<img width="351" alt="Screenshot 2024-07-31 at 11 19 24 PM" src="https://github.com/user-attachments/assets/5f8b8da0-5d9c-4e8f-83fb-a78d27931648">
 
 After the method Random Search for hyperparameter tuning in this model, the test MSE decreased by 0.111
 
