@@ -308,7 +308,8 @@ The pairplot graph shows correlation between perihelion distance (q), absolute m
 
 1. All non-numeric columns and other unnecessary columns have been removed.
 2. After normalization, all features are scaled to lie within the range [0, 1] that ensures that no single feature dominates due to its scale
-<img width="464" alt="Screenshot 2024-07-31 at 10 55 27 PM" src="https://github.com/user-attachments/assets/8d8887ce-a672-4394-a795-d52a9ea62971">
+This image shows the data distribution for each feature after normalization
+![image](https://github.com/user-attachments/assets/7f7ff4bd-48ba-491c-90ee-b6d0a064eaa8)
 
 
 #### Model 1 (Deep Neural Network1)
