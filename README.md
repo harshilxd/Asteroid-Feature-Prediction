@@ -322,7 +322,7 @@ The scatter plot below with x-axis = y_test and y-axis = yhat1 illustrates the r
 
 
 #### Model 2(Deep Neural Network2):
-This deep neural network model predicts diameter of asteroid using features `moid`,`e`,`i`,`H`,`diameter`,`albedo` with a test MSE of 0.00462 and training MSE  of 0.00446
+This deep neural network model predicts `moid` using features `e`,`i`,`H`,`diameter`,`albedo` with a test MSE of 0.00462 and training MSE  of 0.00446
 
 <img width="351" alt="Screenshot 2024-07-31 at 11 19 24 PM" src="https://github.com/user-attachments/assets/5f8b8da0-5d9c-4e8f-83fb-a78d27931648">
 
@@ -374,8 +374,9 @@ The second model that we trained diverged quite a lot from the first since we we
 
 **Yuri Liu**: Coder and Writer: worked on normalization of data, linear regression model, polynomial regression model, hyper tuning for neural networks, report, and readmes.
 
+**Harshil Dodiya**: Leader, Coding, Writing: Helped in organizing meetings; organized github and python notebooks; worked on readme, helped in preprocessing and  data visualization; made polynomial regression with visualization, and first neural network with hyperparameter tuning;  enabled vcs, lfs and issue tracking on github.
  
-
+**Travis Salud**: Writer and coder: Helped put together final writeup and code for linear regression models.
 
 ## Milestone 1:
 ### Link To Colab:
