@@ -7,9 +7,9 @@
 This project aims to enhance our capabilities at understanding asteroids in our solar system using machine learning. While some features of asteroids are easily measurable, others are more difficult to measure as they may require many observations over a long period of time to calculate accurately. Our goal with the project is to apply neural networks and regression techniques to predict features of asteroids that are otherwise time or computationally intensive to figure out. We chose this topic since it was something that our team felt was personally relevant to our interests as well as technologically relevant in the era where we can collect a lot more data than we can reasonably process into usable knowledge. The traditional computational approaches still take orders of magnitude more computational resources than running a simple neural network would, and we these techniques to parse data before looking through it with more traditional and computationally intense methods. This approach is used by CERN as part of their search for high-energy particles because they deal with a similar problem of detection capacity being way beyond processing capacity. We saw the same potential use for small neural networks to filter asteroid data.
 
 ### Figures:
-![](diagrams\gifs\asteroid_orbits3.gif)
+<img src = "https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/5b426991598a6448f56a62e1fc09ab91f6bdf944/diagrams/gifs/asteroid_orbits3.gif" alt = "">
 Orbits of 1000 random asteroids from the preproccessed data with an orbital period. less than 8 years
-![](diagrams\gifs\asteroid_orbits4.gif)
+<img src = "https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/5b426991598a6448f56a62e1fc09ab91f6bdf944/diagrams/gifs/asteroid_orbits4.gif" alt = "">
 Orbits of asteroids with an orbital period less than 8 years.
 
 ### Methods:
