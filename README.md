@@ -296,7 +296,7 @@ This code performs hyperparameter tuning and trains a neural network model to pr
 
 #### Data Exploration Results
 
-We have found a fairly strong correlation between perihelion distance (q), absolute magnitude parameter (H), and Earth minimum orbit intersection (moid) distance with the diameter of asteroids, as indicated by the heatmap.
+The pairplot graph shows correlation between perihelion distance (q), absolute magnitude parameter (H), and Earth minimum orbit intersection (moid) distance with the diameter of asteroids, as indicated by the heatmap.
 
 <img width="600" alt="Screenshot 2024-07-31 at 9 51 47 PM" src="https://github.com/user-attachments/assets/0971782b-6e0d-45dd-8118-077fb4b23d0d">
 
@@ -305,7 +305,9 @@ We have found a fairly strong correlation between perihelion distance (q), absol
 #### Preprocessing Results
 
 1. All non-numeric columns and other unnecessary columns have been removed.
-2. After normalization, all features are scaled to lie within the range [0, 1] which ensures that no single feature dominates due to its scale
+2. After normalization, all features are scaled to lie within the range [0, 1] that ensures that no single feature dominates due to its scale
+<img width="464" alt="Screenshot 2024-07-31 at 10 55 27 PM" src="https://github.com/user-attachments/assets/8d8887ce-a672-4394-a795-d52a9ea62971">
+
 
 #### Model 1 (Deep Neural Network1)
 This model predicted the diameter of asteroid using features `e`,`i`,`H`,`diameter` and `albedo`.
