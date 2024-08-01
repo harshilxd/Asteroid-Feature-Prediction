@@ -226,7 +226,7 @@ Here is a link to the notebook containing the first model : [Neural Network](htt
 
 #### Model 2:
 
-A deep neural network with 5 hidden layers was developed using the features `e`,`i`,`H`,`diameter`,`albedo`,`moid`. This was done to accurately predict `moid` using the other features included in the neural net.
+A deep neural network with 5 hidden layers was developed using the features `e`,`i`,`H`,`diameter`,`albedo`. This was done to accurately predict `moid` using the other features included in the neural net.
 Hyperparameter tuning was also used to improve the model accuracy
 
 | Layer (type)          | Output Shape | Param #|
