@@ -15,8 +15,147 @@ Orbits of asteroids with an orbital period less than 8 years.
 ### Methods:
 
 #### Data Exploration:
+The dataset that we chose comprises of 839,714 observations and 31 features. Here is a complete description of all the features in the dataset :
+
+<details>
+  <summary>Click to view table containing details of data.</summary>
+  <table>
+    <tr>
+      <th>Feature Name</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>full_name</td>
+      <td>Full Name of Body: Contains full unique name of the body.</td>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>Semi-Major Axis (Unit - au): The average distance between the object and the Sun, measured in astronomical units (au).</td>
+    </tr>
+    <tr>
+      <td>e</td>
+      <td>Eccentricity: Describes the shape of the object's orbit, with values ranging from 0 (circular) to close to 1 (highly elliptical).</td>
+    </tr>
+    <tr>
+      <td>G</td>
+      <td>Magnitude Slope Parameter: Factor in determining the brightness variation of the object, reflecting how its brightness changes with phase angle.</td>
+    </tr>
+    <tr>
+      <td>i</td>
+      <td>Inclination (Unit - deg): Angle of the object's orbital plane relative to the plane of the solar system, measured in degrees.</td>
+    </tr>
+    <tr>
+      <td>om</td>
+      <td>Longitude of the Ascending Node: Angle from the reference direction (usually the vernal equinox) to the point where the object's orbit crosses the plane of the solar system from South to North.</td>
+    </tr>
+    <tr>
+      <td>w</td>
+      <td>Argument of Perihelion: Angle between the ascending node and the point of closest approach to the Sun (perihelion).</td>
+    </tr>
+    <tr>
+      <td>q</td>
+      <td>Perihelion Distance (Unit - au): Shortest distance between the object and the Sun during its orbit, measured in astronomical units (au).</td>
+    </tr>
+    <tr>
+      <td>ad</td>
+      <td>Aphelion Distance (Unit - au): Farthest distance between the object and the Sun during its orbit, measured in astronomical units (au).</td>
+    </tr>
+    <tr>
+      <td>per_y</td>
+      <td>Orbital Period: Time taken for the object to complete one full orbit around the Sun, measured in years.</td>
+    </tr>
+    <tr>
+      <td>data_arc</td>
+      <td>Data Arc-Span (Unit - Days): Duration over which observations of the object have been collected, measured in days.</td>
+    </tr>
+    <tr>
+      <td>condition_code</td>
+      <td>Orbit Condition Code: Numerical code indicating the quality and reliability of the object's orbital data, with 0 being the most reliable.</td>
+    </tr>
+    <tr>
+      <td>n_obs_used</td>
+      <td>Number of Observations Used: Total number of observations used to determine the object's orbital parameters.</td>
+    </tr>
+    <tr>
+      <td>H</td>
+      <td>Absolute Magnitude Parameter: Measure of the object's intrinsic brightness, indicating its size and reflectivity.</td>
+    </tr>
+    <tr>
+      <td>diameter</td>
+      <td>Diameter of Asteroid (Unit - Km): Physical size of the asteroid, measured in kilometers (km).</td>
+    </tr>
+    <tr>
+      <td>extent</td>
+      <td>Object Bi/Tri-Axial Ellipsoid Dimensions (Unit - Km): Dimensions describing the shape and size of the object in terms of its three principal axes, measured in kilometers (km).</td>
+    </tr>
+    <tr>
+      <td>albedo</td>
+      <td>Geometric Albedo: Reflectivity of the object's surface, indicating the proportion of sunlight it reflects.</td>
+    </tr>
+    <tr>
+      <td>rot_per</td>
+      <td>Rotation Period (Unit - Hours): Time taken for the object to complete one full rotation on its axis, measured in hours.</td>
+    </tr>
+    <tr>
+      <td>GM</td>
+      <td>Standard Gravitational Parameter: Product of the gravitational constant and the object's mass, used in gravitational calculations.</td>
+    </tr>
+    <tr>
+      <td>BV</td>
+      <td>Color Index B-V Magnitude Difference: Difference in brightness between the object in the B (blue) and V (visual) photometric bands, indicating its color.</td>
+    </tr>
+    <tr>
+      <td>UB</td>
+      <td>Color Index U-B Magnitude Difference: Difference in brightness between the object in the U (ultraviolet) and B (blue) photometric bands, providing spectral information.</td>
+    </tr>
+    <tr>
+      <td>IR</td>
+      <td>Color Index I-R Magnitude Difference: Difference in brightness between the object in the I (infrared) and R (red) photometric bands, conveying thermal properties.</td>
+    </tr>
+    <tr>
+      <td>spec_B</td>
+      <td>Spectral Taxonomic Type (Unit - SMASSII): Spectral classification of the object based on the SMASSII scheme, indicating its mineral composition and surface features.</td>
+    </tr>
+    <tr>
+      <td>spec_T</td>
+      <td>Spectral Taxonomic Type (Unit - Tholen): Spectral classification of the object based on the Tholen system, indicating its spectral characteristics, composition, and origin.</td>
+    </tr>
+    <tr>
+      <td>neo</td>
+      <td>Near Earth Object: Indicates whether the object is classified as a Near Earth Object (NEO), meaning its orbit brings it close to Earth's orbit.</td>
+    </tr>
+    <tr>
+      <td>pha</td>
+      <td>Potentially Hazardous Asteroid: Identifies whether the object is classified as a Potentially Hazardous Asteroid (PHA), posing a potential threat to Earth.</td>
+    </tr>
+    <tr>
+      <td>moid</td>
+      <td>Earth Minimum Orbit Intersection Distance (Unit - au): Smallest distance between the object's orbit and Earth's orbit, measured in astronomical units (au), indicating potential close encounters.</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Class of Asteroid: Visit nasa.com to learn more about classes</td>
+    </tr>
+    <tr>
+      <td>n</td>
+      <td>Unsure of what this is</td>
+    </tr>
+    <tr>
+      <td>per</td>
+      <td>Period</td>
+    </tr>
+    <tr>
+      <td>ma</td>
+      <td>ma</td>
+    </tr>
+  </table>
+</details>
+
+
+
 We utilized a heatmap to visualize the correlations between different features in the dataset.
-![](diagrams\heatmaps\heatmap_full.png)
+<img src = "https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/3315ed5312a593256612473dce74bb4eb014859e/diagrams/heatmaps/heatmap_full.png" alt = "correlation heatmap">
+
 
 #### Data Preproccessing:
 
@@ -27,8 +166,11 @@ We utilized a heatmap to visualize the correlations between different features i
 5. Removed observations in the top 5% of 'a' and 'diameter'.
 6. Normalized data using MinMaxScaler
 
+Here is a link to the notebook where we carried out the data exploration and data preprocessing steps : 
+[Data Exploration Notebook](https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/3315ed5312a593256612473dce74bb4eb014859e/source/Data_Exploration.ipynb)
+
 #### Model 1:
-A deep neural network with 3 hidden layers was developed, using 'q', 'H', 'a', 'i', 'ad', 'n', and 'per' as features.
+A deep neural network with 3 hidden layers was developed, using `q`, `H`, `a`, `i`, `ad`, `n`, and `per` as features. We predict the diameter of the asteroids using a neural network and the aforementioned features
 
 | Layer (type)         | Output Shape | 128 |
 |----------------------|--------------|-----|
@@ -48,7 +190,69 @@ The model was further improved through hyperparameter tuning layer count and siz
 | dense_10 (dense)     | (None, 96)   | 24,672 |
 | dense_11 (dense)     | (None, 1)    | 97     |
 
+Here is a link to the notebook containing the first model : [Neural Network](https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/3315ed5312a593256612473dce74bb4eb014859e/source/Model2_Artificial_Neural_Net.ipynb)
+
 #### Model 2:
+
+A deep neural network with 5 hidden layers was developed using the features `e`,`i`,`H`,`diameter`,`albedo`,`moid`. This was done to accurately predict `moid` using the other features included in the neural net.
+Hyperparameter tuning was also used to improve the model accuracy
+
+| Layer (type)          | Output Shape | Param #|
+|---------------------- |--------------|--------|
+| dense_36  (dense)     | (None, 32)   | 192    |
+| dense_37  (dense)     | (None, 22)   | 726    |
+| dense_38  (dense)     | (None, 9)    | 207    |
+| dense_39  (dense)     | (None, 4)    | 40     |
+| dense_40  (dense)     | (None, 2)    | 10     |
+| dense_41  (dense)     | (None, 1)    | 3      |
+
+ Total params: 1,178 (4.60 KB)
+ 
+ Trainable params: 1,178 (4.60 KB)
+ 
+ Non-trainable params: 0 (0.00 B)
+
+ ```
+# set up HP-tuning
+def create_model(units1=32, units2=16, units3=8, optimizer='adam'):
+    model = Sequential()
+    model.add(Dense(units=units1, activation='relu', input_dim=X_train.shape[1]))
+    model.add(Dense(units=units2, activation='relu'))
+    model.add(Dense(units=units3, activation='relu'))
+    model.add(Dense(units=4, activation='relu'))
+    model.add(Dense(units=2, activation='relu'))
+    model.add(Dense(units=1, activation='relu'))
+    model.compile(optimizer=optimizer, loss='mean_squared_error')
+    return model
+
+param_dist = {
+    'units2': randint(8, 32),
+    'units3': randint(4, 16),
+    'batch_size': [10, 20],
+    'epochs': [10, 50],
+    'optimizer': ['adam','rmsprop']
+}
+
+# Suppress all warnings
+warnings.filterwarnings('ignore')
+warnings.simplefilter('ignore')
+
+model = KerasRegressor(build_fn=create_model, verbose=0,units1=38,units2=16,units3=8)
+
+random_search = RandomizedSearchCV(estimator=model, param_distributions=param_dist, n_iter=100, cv=3, random_state=42, n_jobs=-1)
+random_search_result = random_search.fit(X_train, y_train)
+```
+This code performs hyperparameter tuning and trains a neural network model to predict a target variable ('moid') from a dataset. The dataset is split into training (80%) and testing (20%) sets. The input features are separated from the target variable. A neural network model is created using Keras, consisting of multiple dense layers with ReLU activation functions, and compiled with an optimizer and mean squared error loss function. The RandomizedSearchCV is used to find the best hyperparameters, including the number of units in certain layers (units2 and units3), batch size, number of epochs, and optimizer type. The ranges for units2 and units3 are specified using a random integer distribution (randint) with the following parameters:
+
+1. units2: Start = 8, Stop = 32
+2. units3: Start = 4, Stop = 16
+3. batch_size: Values = [10, 20]
+4. epochs: Values = [10, 50]
+5. optimizer: Values = ['adam', 'rmsprop']
+
+ Here is the link to the Neural Network Model 2 Notebook : [Model 2 Notebook](https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/3315ed5312a593256612473dce74bb4eb014859e/source/Neural_Net_With_HP_tuning.ipynb)
+
+ 
 
 ### Results:
 
@@ -59,14 +263,14 @@ The project began with our comprehensive data exploration and preprocessing whic
 
 We settled on using a neural network for our first model because we wanted to model more complex relationships and our regression was not giving us good enough results. We were able to use many features in combination to capture the complex relationship for prediction, and then we used hyperparameter tuning to further optimize the model.
 
-The second model that we trained diverged quite a lot from the first since we were working on predicting a different feature after a discussion with the professor.
+The second model that we trained diverged quite a lot from the first since we were working on predicting a different feature after a discussion with the professor. This time around we tried predicting the values of `moid` using the features `e`,`i`,`H`,`diameter`, and `albedo`. First up, we built a regression model to predict `moid` using `diameter`. However, we weren't able to achieve good results using the regression model since `diameter` and `moid` did not have a linear relationship with each other. Their relationship certainly required us to build a neural net for better predictions of `moid` values. We also tried incorporating hyperparameter tuning to achieve as accurate results as possible. Whilst the regression model gave us a MSE of 0.012, the neural net achieved a MSE of 0.00462 which was an improvement.  
 
 
 ### Conclusion:
 
 ### Statement of Collaboration:
 **Moshe Bookstein:** Project Management and Design: Creating data exploration graphs, helped with preprocessing, created figures and illustrations, documentation and organization.
-
+**Aniket Iyer:** Helped creating the regression model to predict diameter and moid and also helped creating the neural net to predict `moid` using `diameter`. Edited the documentation as well 
 
 
 ## Milestone 1:
