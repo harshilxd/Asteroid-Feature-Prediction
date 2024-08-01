@@ -1,5 +1,13 @@
 # Asteroid Data Exploration Project
-
+<details>
+  <summary>Milestone Links:</summary>
+  
+- [Milestone 1](https://github.com/harshilxd/Asteroid-Feature-Prediction/tree/ms1)
+- [Milestone 2](https://github.com/harshilxd/Asteroid-Feature-Prediction/tree/ms2)
+- [Milestone 3](https://github.com/harshilxd/Asteroid-Feature-Prediction/tree/ms3)
+- [Milestone 4](https://github.com/harshilxd/Asteroid-Feature-Prediction/tree/ms4)
+  
+</details>
 
 
 ## Milestone 4: Final Submission
