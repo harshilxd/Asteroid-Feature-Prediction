@@ -367,6 +367,25 @@ The second model that we trained diverged quite a lot from the first since we we
 
 ### Conclusion:
 
+While the current performance is impressive, there are always areas where improvements can be made:
+
+**Model Complexity:** We need to evaluate if the model complexity is optimal. Adding more layers or neurons might not always lead to better performance and could cause overfitting.
+
+**Regularization Techniques:** We might need to implement regularization techniques such as Dropout, L2 regularization, or Batch Normalization to prevent overfitting and improve model robustness.
+
+**Cross-Validation:** We need to implement cross-validation to ensure the model's robustness and prevent overfitting to a particular train-test split. This will give a better estimate of the model's performance on unseen data.
+
+**Model Ensembles:** We need to combine the neural network with other models (e.g., ensemble with decision trees or gradient boosting machines) to potentially capture different aspects of the data and improve overall performance.
+
+#### Future Directions : 
+
+**Advanced Features:** Conduct a thorough feature importance analysis to identify the most influential features and consider engineering new features.
+
+**Cross-Validation:** Use k-fold cross-validation to ensure that the model is not overfitting and to provide a more accurate measure of its performance.
+
+**Fine-Tuning the Architecture:** Experiment with the architecture by adding/removing layers or neurons. Implement regularization techniques such as Dropout or Batch Normalization to control overfitting.
+
+
 ### Statement of Collaboration:
 **Moshe Bookstein:** Project Management and Design: Creating data exploration graphs, helped with preprocessing, created figures and illustrations, documentation and organization.
 
