@@ -317,7 +317,8 @@ This model predicted the diameter of asteroid using features `e`,`i`,`H`,`diamet
 The scatter plot below with x-axis = y_test and y-axis = yhat1 illustrates the relationship between the true values and the predicted values for the prediction of the diameter in this deep neural network
 
 
-<img width="630" alt="Screenshot 2024-07-31 at 10 30 05 PM" src="https://github.com/user-attachments/assets/8287bbe8-173d-4e95-ab2a-a981f3713682">
+<img width="493" alt="Screenshot 2024-07-31 at 11 16 17 PM" src="https://github.com/user-attachments/assets/57f0e89e-e8c4-407b-875e-8e29a1f8e100">
+
 
 
 #### Model 2(Deep Neural Network2):
