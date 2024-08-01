@@ -1,5 +1,74 @@
 # Asteroid Data Exploration Project
 
+
+
+## Milestone 4: Final Submission
+### Introduction:
+This project aims to enhance our capabilities at understanding asteroids in our solar system using machine learning. While some features of asteroids are easily measurable, others are more difficult to measure as they may require many observations over a long period of time to calculate accurately. Our goal with the project is to apply neural networks and regression techniques to predict features of asteroids that are otherwise time or computationally intensive to figure out. We chose this topic since it was something that our team felt was personally relevant to our interests as well as technologically relevant in the era where we can collect a lot more data than we can reasonably process into usable knowledge. The traditional computational approaches still take orders of magnitude more computational resources than running a simple neural network would, and we these techniques to parse data before looking through it with more traditional and computationally intense methods. This approach is used by CERN as part of their search for high-energy particles because they deal with a similar problem of detection capacity being way beyond processing capacity. We saw the same potential use for small neural networks to filter asteroid data.
+
+### Figures:
+![](diagrams\gifs\asteroid_orbits3.gif)
+Orbits of 1000 random asteroids from the preproccessed data with an orbital period. less than 8 years
+![](diagrams\gifs\asteroid_orbits4.gif)
+Orbits of asteroids with an orbital period less than 8 years.
+
+### Methods:
+
+#### Data Exploration:
+We utilized a heatmap to visualize the correlations between different features in the dataset.
+![](diagrams\heatmaps\heatmap_full.png)
+
+#### Data Preproccessing:
+
+1. Removed string columns: 'name', 'spec_B', 'spec_T', and 'class'.
+2. Dropped columns with high NaN values: 'rot_per', 'GM', 'BV', and 'UB'.
+3. Removed rows with NaN values in the diameter feature, reducing the dataset from 839, 714 to 24,404 observations.
+4. Encoded 'pha' column to binary values (0 and 1).
+5. Removed observations in the top 5% of 'a' and 'diameter'.
+6. Normalized data using MinMaxScaler
+
+#### Model 1:
+A deep neural network with 3 hidden layers was developed, using 'q', 'H', 'a', 'i', 'ad', 'n', and 'per' as features.
+
+| Layer (type)         | Output Shape | 128 |
+|----------------------|--------------|-----|
+| dense_7  (dense)     | (None, 16)   | 128 |
+| dense_8  (dense)     | (None, 8)    | 136 |
+| dense_9  (dense)     | (None, 6)    | 54  |
+| dense_10 (dense)     | (None, 1)    | 7   |
+
+The model was further improved through hyperparameter tuning layer count and size.
+
+| Layer (type)         | Output Shape | Param #|
+|----------------------|--------------|--------|
+| dense_6  (dense)     | (None, 96)   | 768    |
+| dense_7  (dense)     | (None, 96)   | 9,312  |
+| dense_8  (dense)     | (None, 192)  | 18,624 |
+| dense_9  (dense)     | (None, 256)  | 49,408 |
+| dense_10 (dense)     | (None, 96)   | 24,672 |
+| dense_11 (dense)     | (None, 1)    | 97     |
+
+#### Model 2:
+
+### Results:
+
+### Discussion:
+
+
+The project began with our comprehensive data exploration and preprocessing which reduced our data set size quite a lot. After looking into how to check for data culling issies we settled on the Kolmogorov-Smirnov test to make sure that our data distribution was not heavily affected, and thankfully it was not. We started with a basic linear regression model but quickly moved on to higher degree polynomial regression models because the relationship between absolute magnitude and our diameter was nonlinear. However, while this was a decent model, for this project we wanted to come up with a more original approach to make our research more useful.
+
+We settled on using a neural network for our first model because we wanted to model more complex relationships and our regression was not giving us good enough results. We were able to use many features in combination to capture the complex relationship for prediction, and then we used hyperparameter tuning to further optimize the model.
+
+The second model that we trained diverged quite a lot from the first since we were working on predicting a different feature after a discussion with the professor.
+
+
+### Conclusion:
+
+### Statement of Collaboration:
+**Moshe Bookstein:** Project Management and Design: Creating data exploration graphs, helped with preprocessing, created figures and illustrations, documentation and organization.
+
+
+
 ## Milestone 1:
 ### Link To Colab:
 <a target="_blank" href="https://colab.research.google.com/github/harshilxd/Asteroid-Feature-Prediction/blob/main/source/Exploring_Asteroid_Dataset.ipynb">
