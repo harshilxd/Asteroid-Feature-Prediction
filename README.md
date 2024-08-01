@@ -511,6 +511,50 @@ To prepare the dataset for analysis, we undertook several preprocessing steps:
    - Using the scipy.stats.ks_2samp https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html we found that dropping the NAN rows did not severely effect the distribution. The KS test checks for the likelyhood that two samples were drawn from the same distribution, and for the variables we are interested in found p-values of **2.488278122363494e-60** for q, **0.0** for H and **1.4086431738613219e-53** for moid. All indicate that the effect was negligible.
 
 
+
+### Graph Data Analysis
+
+To better understand the relationships between various features and the diameter, we graphed several feature correlations. This graphical analysis aids in identifying potential relationships and patterns that might not be immediately evident through raw data or simple statistical summaries.
+
+![diagrams/heatmaps/diameter vs graphs.png](https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/0a965110aba28f2dfd9f969f2118bf6372483734/diagrams/heatmaps/diameter%20vs%20graphs.png)
+
+1. **Diameter vs. q:**
+   - We plotted the relationship between diameter and q (perihelion distance). This scatter plot helps us observe any direct or inverse relationships between the size of the object and its perihelion distance.
+
+2. **Diameter vs. moid:**
+   - The scatter plot between diameter and moid (minimum orbit intersection distance) was analyzed to see if there is any correlation between the object's size and its closest approach to Earth.
+
+3. **Diameter vs. H:**
+   - We also examined the correlation between diameter and H (absolute magnitude). This plot is particularly interesting as it helps in understanding how the brightness of an object might relate to its size.
+
+5. **Diameter vs. n:**
+   - Analyzing the scatter plot of diameter versus n (number of observations) can reveal whether more observations correlate with more accurate or different size estimations.
+  
+6. **Correlation Difference after dropping NAN values in preproccesing**
+   
+   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/c50bbc243a61133d703deddb63453c36aea5a690/diagrams/heatmaps/Difference%20in%20correlation%20before%20and%20after%20NAN%20drop.png" alt="histogram of q" width="400"/>
+
+8. **Distribution Difference after dropping NAN values in preproccesing**
+    - Histogram of q:
+   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/q%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
+   
+    - Histogram of H:
+   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/h%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
+   
+    - Histogram of moid:
+   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/moid%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
+
+
+These visualizations provide several insights:
+
+- **Identifying Outliers:**
+  - Scatter plots help in easily identifying any outliers that may exist in the data, which could potentially skew the analysis or indicate errors or special cases.
+
+- **Understanding Distribution:**
+  - The spread and clustering of points in these graphs can provide an understanding of how uniformly or variably the features are distributed.
+
+
+
 ## Milestone 3:
 
 Before training our first model, we carried out few final steps of major preprocessing. We began by removing observations that were in the high top 5% of `a` and `diameter`. We did this to ensure that the big outliers do not affect our model negatively. We then proceeded to normalize our data using `MinMaxScaler`. This led to a data distribution between 0 and 1, which made it easier for our models to run.
