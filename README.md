@@ -156,6 +156,10 @@ The dataset that we chose comprises of 839,714 observations and 31 features. Her
 We utilized a heatmap to visualize the correlations between different features in the dataset.
 <img src = "https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/3315ed5312a593256612473dce74bb4eb014859e/diagrams/heatmaps/heatmap_full.png" alt = "correlation heatmap">
 
+To better understand the relationships between various features and the diameter, we graphed several feature correlations. This graphical analysis aids in identifying potential relationships and patterns that might not be immediately evident through raw data or simple statistical summaries.
+
+![diagrams/heatmaps/diameter vs graphs.png](https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/0a965110aba28f2dfd9f969f2118bf6372483734/diagrams/heatmaps/diameter%20vs%20graphs.png)
+
 
 #### Data Preproccessing:
 
@@ -165,6 +169,8 @@ We utilized a heatmap to visualize the correlations between different features i
 4. Encoded 'pha' column to binary values (0 and 1).
 5. Removed observations in the top 5% of 'a' and 'diameter'.
 6. Normalized data using MinMaxScaler
+
+
 
 Here is a link to the notebook where we carried out the data exploration and data preprocessing steps : 
 [Data Exploration Notebook](https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/3315ed5312a593256612473dce74bb4eb014859e/source/Data_Exploration.ipynb)
@@ -318,7 +324,30 @@ This deep neural network model predicts diameter of asteroid using features `moi
 ### Discussion:
 
 
-The project began with our comprehensive data exploration and preprocessing which reduced our data set size quite a lot. After looking into how to check for data culling issies we settled on the Kolmogorov-Smirnov test to make sure that our data distribution was not heavily affected, and thankfully it was not. We started with a basic linear regression model but quickly moved on to higher degree polynomial regression models because the relationship between absolute magnitude and our diameter was nonlinear. However, while this was a decent model, for this project we wanted to come up with a more original approach to make our research more useful.
+The project began with our comprehensive data exploration and preprocessing which reduced our data set size quite a lot. After looking into how to check for data culling issies we settled on the Kolmogorov-Smirnov test to make sure that our data distribution was not heavily affected, and thankfully it was not. 
+
+**Distribution Difference after dropping NAN values in preproccesing**
+
+    - Histogram of q:
+   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/q%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
+   
+    - Histogram of H:
+   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/h%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
+   
+    - Histogram of moid:
+   <img src="https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/ad64fd0dae7179fc48cc827d7dcccacfba86e356/diagrams/heatmaps/moid%20before%20and%20after%20drop.png" alt="histogram of q" width="700"/>
+
+
+These visualizations provide several insights:
+
+- **Identifying Outliers:**
+  - Scatter plots help in easily identifying any outliers that may exist in the data, which could potentially skew the analysis or indicate errors or special cases.
+
+- **Understanding Distribution:**
+  - The spread and clustering of points in these graphs can provide an understanding of how uniformly or variably the features are distributed.
+
+
+We started with a basic linear regression model but quickly moved on to higher degree polynomial regression models because the relationship between absolute magnitude and our diameter was nonlinear. However, while this was a decent model, for this project we wanted to come up with a more original approach to make our research more useful.
 
 We settled on using a neural network for our first model because we wanted to model more complex relationships and our regression was not giving us good enough results. We were able to use many features in combination to capture the complex relationship for prediction, and then we used hyperparameter tuning to further optimize the model.
 
