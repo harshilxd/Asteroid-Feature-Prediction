@@ -190,6 +190,38 @@ The model was further improved through hyperparameter tuning layer count and siz
 | dense_10 (dense)     | (None, 96)   | 24,672 |
 | dense_11 (dense)     | (None, 1)    | 97     |
 
+```
+def build_model(hp):
+    model = Sequential()
+    model.add(Input(shape=(X_train.shape[1],)))
+    for i in range(hp.Int("num_layers", 3, 6)):
+        model.add(Dense(units=hp.Int(f'units_{i}', min_value=32, max_value=256, step=32),
+                        activation=hp.Choice("activation", ["relu"]),))
+
+    model.add(Dense(1, activation='relu'))
+    optimizer = Adam(learning_rate=hp.Choice('learning_rate', values=[1e-4, 1e-5, 1e-6]))
+    model.compile(optimizer=optimizer, loss='mean_squared_error', metrics=['mean_squared_error'])
+    return model
+tuner = kt.RandomSearch(
+    build_model,
+    objective='val_mean_squared_error',
+    max_trials=5,
+    executions_per_trial=1,
+    directory='my_dir',
+    overwrite=True,
+    project_name='asteroid'
+)
+
+tuner.search(X_train, y_train, epochs=50, validation_split=0.1, batch_size=32)
+model1.fit(X_train, y_train, epochs=50, validation_split=0.1, batch_size=32)
+
+```
+This code performs hyperparameter tuning and trains a neural network model to predict a target variable ('diameter') from a dataset. The dataset is split into training (90%) and testing (10%) sets. The input features are separated from the target variable. A neural network model is created using Keras, consisting of multiple dense layers with ReLU activation functions, and compiled with an optimizer and mean squared error loss function. KT RandomSearch is used to find the best hyperparameters, including the number of units in all hidden layers, number of hidden layers, and learning rate. The ranges for in the hidden layers are specified using a random integer distribution (randint) with the following parameters:
+
+1. units: Start = 32, Stop = 256, Step = 32
+2. hidden layer count: num_layers = [3,6]
+3. learning rate: values = [1e-4, 1e-5, 1e-6]
+
 Here is a link to the notebook containing the first model : [Neural Network](https://github.com/harshilxd/Asteroid-Feature-Prediction/blob/3315ed5312a593256612473dce74bb4eb014859e/source/Model2_Artificial_Neural_Net.ipynb)
 
 #### Model 2:
